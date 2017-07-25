@@ -25,10 +25,5 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
             <db:parameterized-query><![CDATA[SELECT * FROM FLIGHTS]]></db:parameterized-query>
         </db:select>
         <object-to-string-transformer doc:name="Object to String"/>
-        <jms:outbound-endpoint queue="flights" connector-ref="Active_MQ" doc:name="JMS"/>
-    </flow>
-    <flow name="maven_projectFlow">
-        <jms:inbound-endpoint queue="vm://localhost" connector-ref="Active_MQ" doc:name="JMS"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
